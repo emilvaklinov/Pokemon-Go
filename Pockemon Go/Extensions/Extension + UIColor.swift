@@ -15,6 +15,10 @@ extension UIColor {
     }
     
     static func mainPink() -> UIColor {
-        return UIColor.rgb(red: 221, green: 94, blue: 86)
+        return UIColor.rgb(red: 243, green: 145, blue: 145)
+    }
+    
+    static func redBull() -> UIColor {
+        return UIColor.rgb(red: 255, green: 0, blue: 0)
     }
 }

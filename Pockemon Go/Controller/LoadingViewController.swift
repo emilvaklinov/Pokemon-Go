@@ -95,7 +95,7 @@ class LoadingViewController: UICollectionViewController {
         navigationController?.navigationBar.barStyle = .black
          navigationController?.navigationBar.isTranslucent = false
         
-        navigationItem.title = "Pokmon"
+        navigationItem.title = "Pokemon"
         
        configureSearchBarButton()
         
@@ -169,7 +169,7 @@ extension LoadingViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let width = (view.frame.width - 36) / 3
+        let width = (view.frame.width - 36) / 2
         return CGSize(width: width, height: width)
     }
 }
@@ -181,9 +181,9 @@ extension LoadingViewController: LoadingCellDelegate {
     func presentInfoView(withPokemon pokemon: Pokemon) {
         
         view.addSubview(infoView)
-//        infoView.configureViewComponents()
-//        infoView.delegate = self
-//        infoView.pokemon = pokemon
+        infoView.configureViewComponents()
+        infoView.delegate = self
+        infoView.pokemon = pokemon
         infoView.anchor(top: nil, left: nil, bottom: nil, right: nil, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: view.frame.width - 64, height: 350)
         infoView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         infoView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -44).isActive = true
