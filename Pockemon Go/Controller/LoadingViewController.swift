@@ -13,7 +13,6 @@ private let reuseIdentifier = "Cell"
 class LoadingViewController: UICollectionViewController {
 
     // MARK: - Properties
-    
     var pokemon = [Pokemon]()
     var filteredPokemon = [Pokemon]()
     var inSearchMode = false
@@ -39,7 +38,6 @@ class LoadingViewController: UICollectionViewController {
     }
 
     // MARK: - Selectors
-    
     @objc func showSearchBar() {
         configureSearchBar()
     }
@@ -60,7 +58,6 @@ class LoadingViewController: UICollectionViewController {
     }
     
     // MARK: - Helper Functions
-    
     func configureSearchBar() {
         searchBar = UISearchBar()
         searchBar.delegate = self

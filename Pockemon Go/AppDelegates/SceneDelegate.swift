@@ -16,9 +16,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let layout = UICollectionViewFlowLayout()
+        let navController = UINavigationController(rootViewController: LoadingViewController(collectionViewLayout: layout))
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        self.window?.rootViewController = LoadingViewController(collectionViewLayout: layout)
+        self.window?.rootViewController = navController
         window?.makeKeyAndVisible()
     }
     
