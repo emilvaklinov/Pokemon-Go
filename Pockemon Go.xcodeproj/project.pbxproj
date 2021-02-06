@@ -16,6 +16,7 @@
 		483AC72025CF30A2006C6DE6 /* Pockemon_GoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483AC71F25CF30A2006C6DE6 /* Pockemon_GoTests.swift */; };
 		483AC72B25CF30A3006C6DE6 /* Pockemon_GoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483AC72A25CF30A3006C6DE6 /* Pockemon_GoUITests.swift */; };
 		483AC74925CF3223006C6DE6 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483AC74825CF3223006C6DE6 /* Pokemon.swift */; };
+		483AC75A25CF32CF006C6DE6 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483AC75925CF32CF006C6DE6 /* Service.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		483AC72A25CF30A3006C6DE6 /* Pockemon_GoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pockemon_GoUITests.swift; sourceTree = "<group>"; };
 		483AC72C25CF30A3006C6DE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		483AC74825CF3223006C6DE6 /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
+		483AC75925CF32CF006C6DE6 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 		483AC70725CF309D006C6DE6 /* Pockemon Go */ = {
 			isa = PBXGroup;
 			children = (
+				483AC75825CF32AD006C6DE6 /* Networking */,
 				483AC73E25CF30D4006C6DE6 /* AppDelegates */,
 				483AC75025CF3229006C6DE6 /* Model */,
 				483AC75725CF3243006C6DE6 /* View */,
@@ -177,6 +180,14 @@
 			children = (
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		483AC75825CF32AD006C6DE6 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				483AC75925CF32CF006C6DE6 /* Service.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -312,6 +323,7 @@
 			files = (
 				483AC70D25CF309D006C6DE6 /* ViewController.swift in Sources */,
 				483AC74925CF3223006C6DE6 /* Pokemon.swift in Sources */,
+				483AC75A25CF32CF006C6DE6 /* Service.swift in Sources */,
 				483AC70925CF309D006C6DE6 /* AppDelegate.swift in Sources */,
 				483AC70B25CF309D006C6DE6 /* SceneDelegate.swift in Sources */,
 			);
