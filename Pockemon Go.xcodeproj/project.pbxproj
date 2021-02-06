@@ -99,12 +99,11 @@
 		483AC70725CF309D006C6DE6 /* Pockemon Go */ = {
 			isa = PBXGroup;
 			children = (
-				483AC70825CF309D006C6DE6 /* AppDelegate.swift */,
-				483AC70A25CF309D006C6DE6 /* SceneDelegate.swift */,
-				483AC70C25CF309D006C6DE6 /* ViewController.swift */,
-				483AC70E25CF309D006C6DE6 /* Main.storyboard */,
+				483AC74725CF3178006C6DE6 /* Extensions */,
+				483AC73E25CF30D4006C6DE6 /* AppDelegates */,
+				483AC74325CF3168006C6DE6 /* Controller */,
+				483AC74225CF3146006C6DE6 /* Storyboards */,
 				483AC71125CF30A2006C6DE6 /* Assets.xcassets */,
-				483AC71325CF30A2006C6DE6 /* LaunchScreen.storyboard */,
 				483AC71625CF30A2006C6DE6 /* Info.plist */,
 			);
 			path = "Pockemon Go";
@@ -126,6 +125,39 @@
 				483AC72C25CF30A3006C6DE6 /* Info.plist */,
 			);
 			path = "Pockemon GoUITests";
+			sourceTree = "<group>";
+		};
+		483AC73E25CF30D4006C6DE6 /* AppDelegates */ = {
+			isa = PBXGroup;
+			children = (
+				483AC70825CF309D006C6DE6 /* AppDelegate.swift */,
+				483AC70A25CF309D006C6DE6 /* SceneDelegate.swift */,
+			);
+			path = AppDelegates;
+			sourceTree = "<group>";
+		};
+		483AC74225CF3146006C6DE6 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				483AC70E25CF309D006C6DE6 /* Main.storyboard */,
+				483AC71325CF30A2006C6DE6 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		483AC74325CF3168006C6DE6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				483AC70C25CF309D006C6DE6 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		483AC74725CF3178006C6DE6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -438,6 +470,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Pockemon Go/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -456,6 +489,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Pockemon Go/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
