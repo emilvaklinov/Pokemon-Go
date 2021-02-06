@@ -18,5 +18,10 @@ class LoadingCell: UICollectionViewCell {
     // MARK: - Properties
     
     var delegate: LoadingCellDelegate?
-    
+    var pokemon: Pokemon? {
+        didSet {
+//            nameLabel.text = pokemon?.name?.capitalized
+//            imageView.image = pokemon?.image
+        }
+    }
 }
