@@ -58,7 +58,7 @@ class InfoView: UIView {
     let nameLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
-        label.font = UIFont.boldSystemFont(ofSize: 16)
+        label.font = UIFont.boldSystemFont(ofSize: 21)
         label.text = "Charmander"
         return label
     }()
@@ -98,15 +98,15 @@ class InfoView: UIView {
         button.backgroundColor = .mainPink()
         button.setTitle("View More Info", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17)
         button.addTarget(self, action: #selector(handleViewMoreInfo), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.layer.cornerRadius = 5
+        button.layer.cornerRadius = 7
         return button
     }()
     
-    // MARK: - Init
-    
+    /// Description
+    /// - Parameter frame: frame description
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -116,17 +116,15 @@ class InfoView: UIView {
     }
     
     // MARK: - Selectors
-    
     @objc func handleViewMoreInfo() {
         guard let pokemon = self.pokemon else { return }
         delegate?.dismissInfoView(withPokemon: pokemon)
     }
     
     // MARK: - Helper Functions
-    
     func configureLabel(label: UILabel, title: String, details: String) {
         let attributedText = NSMutableAttributedString(attributedString: NSAttributedString(string: "\(title):  ", attributes: [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 16), NSAttributedString.Key.foregroundColor: UIColor.mainPink()]))
-        attributedText.append(NSAttributedString(string: "\(details)", attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16), NSAttributedString.Key.foregroundColor: UIColor.gray]))
+        attributedText.append(NSAttributedString(string: "\(details)", attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16), NSAttributedString.Key.foregroundColor: UIColor.goldFoil()]))
         label.attributedText = attributedText
     }
     

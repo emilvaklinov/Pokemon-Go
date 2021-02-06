@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// MARK: Pokemon color codes
 extension UIColor {
     
     static func rgb(red: CGFloat, green: CGFloat, blue: CGFloat) -> UIColor {
@@ -15,10 +16,27 @@ extension UIColor {
     }
     
     static func mainPink() -> UIColor {
-        return UIColor.rgb(red: 243, green: 145, blue: 145)
-    }
-    
-    static func redBull() -> UIColor {
         return UIColor.rgb(red: 255, green: 0, blue: 0)
     }
+    
+    static func goldenYellow() -> UIColor {
+        return UIColor.rgb(red: 255, green: 222, blue: 0)
+    }
+
+    static func goldFoil() -> UIColor {
+        return UIColor.rgb(red: 179, green: 161, blue: 37)
+    }
+    
+    static func yellowPok() -> UIColor {
+        return UIColor.rgb(red: 255, green: 203, blue: 5)
+    }
+    
+    static func bluePok() -> UIColor {
+        return UIColor.rgb(red: 61, green: 165, blue: 202)
+    }
+    
+    static func navyBluePok() -> UIColor {
+        return UIColor.rgb(red: 0, green: 58, blue: 112)
+    }
+
 }
