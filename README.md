@@ -40,3 +40,4 @@ To run the app on a device you need to choose team certificate.
 
 ### Swift architecture
 - The application is built with an MVC design pattern.
+<img width="984" alt="Screenshot 2021-02-07 at 01 24 11" src="https://user-images.githubusercontent.com/30974420/107134178-a337a880-68e7-11eb-9a19-c969bc8bd233.png">
