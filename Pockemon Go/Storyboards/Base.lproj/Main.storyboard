@@ -127,9 +127,11 @@
                     <navigationItem key="navigationItem" id="pNm-5O-2NP"/>
                     <connections>
                         <outlet property="abilityLabel" destination="Eev-lW-GVn" id="8Le-Fr-gFM"/>
+                        <outlet property="grassLabel" destination="dTn-Bj-lsV" id="BMJ-Dz-3CH"/>
                         <outlet property="imageView" destination="CUE-dl-A1H" id="K8a-yT-ZVO"/>
                         <outlet property="nameLabel" destination="yHj-PS-AR6" id="0oj-4M-hvC"/>
                         <outlet property="numberLabel" destination="OA9-A6-ldP" id="hHv-eP-ggL"/>
+                        <outlet property="poisonLabel" destination="Dnu-r6-Chc" id="4Dy-cQ-Fgh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C35-UG-Hbk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
