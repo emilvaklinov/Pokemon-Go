@@ -84,6 +84,7 @@ class PokemonInfoController: UIViewController {
     }
     
     // MARK: - Helper Functions
+    /// Cofiguration the view
     func configureViewComponents() {
         view.backgroundColor = .white
         navigationController?.navigationBar.tintColor = .white

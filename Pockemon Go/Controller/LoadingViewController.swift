@@ -48,6 +48,7 @@ class LoadingViewController: UICollectionViewController {
     
     // MARK: - API
     
+    /// Fetching func in async way from the DispatchQueue
     func fetchPokemon() {
         Service.shared.fetchPokemon { (pokemon) in
             DispatchQueue.main.async {
@@ -75,6 +76,8 @@ class LoadingViewController: UICollectionViewController {
         navigationItem.rightBarButtonItem?.tintColor = .white
     }
     
+    /// Description
+    /// - Parameter pokemon: dismiss info
     func dismissInfoView(pokemon: Pokemon?) {
         UIView.animate(withDuration: 0.5, animations: {
             self.visualEffectView.alpha = 0
@@ -111,6 +114,8 @@ class LoadingViewController: UICollectionViewController {
 // MARK: - UISearchBarDelegate
 extension LoadingViewController: UISearchBarDelegate {
     
+    /// Description
+    /// - Parameter searchBar: searchBar description
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         navigationItem.titleView = nil
         configureSearchBarButton()
@@ -118,6 +123,10 @@ extension LoadingViewController: UISearchBarDelegate {
         collectionView.reloadData()
     }
     
+    /// Description
+    /// - Parameters:
+    ///   - searchBar: searchBar set up
+    ///   - searchText: searchText description and filtering the pokemon by name
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         if searchText == "" || searchBar.text == nil {
@@ -134,10 +143,20 @@ extension LoadingViewController: UISearchBarDelegate {
 
 // MARK: - UICollectionViewDataSource/Delegate
 extension LoadingViewController {
+    /// Description
+    /// - Parameters:
+    ///   - collectionView: collectionView description
+    ///   - section: section description
+    /// - Returns: in search mode filtered pokemon
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return inSearchMode ? filteredPokemon.count : pokemon.count
     }
     
+    /// Description
+    /// - Parameters:
+    ///   - collectionView: collectionView description
+    ///   - indexPath: indexPath description
+    /// - Returns: cell with filtered pokemon in search mode
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! LoadingCell
         
@@ -175,6 +194,8 @@ extension LoadingViewController: UICollectionViewDelegateFlowLayout {
 
 extension LoadingViewController: LoadingCellDelegate {
     
+    /// Description
+    /// - Parameter pokemon: Pokemon cell view
     func presentInfoView(withPokemon pokemon: Pokemon) {
         
         view.addSubview(infoView)
