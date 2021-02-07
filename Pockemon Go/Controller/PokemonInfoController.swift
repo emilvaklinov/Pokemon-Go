@@ -55,7 +55,7 @@ class PokemonInfoController: UIViewController {
     let evoLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
-        label.text = "Next Evolution: Charmeleon"
+        label.text = "Next Evolution: ..."
         label.font = UIFont.systemFont(ofSize: 20)
         return label
     }()
@@ -63,14 +63,17 @@ class PokemonInfoController: UIViewController {
     let firstEvoImageView: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFit
-        iv.backgroundColor = .goldFoil()
+        iv.backgroundColor = .white
+        iv.image = UIImage(named: "Image")
         return iv
     }()
     
     let secondEvoImageView: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFit
-        iv.backgroundColor = .goldFoil()
+        iv.backgroundColor = .white
+        iv.image = UIImage(named: "Image")
+        
         return iv
     }()
     
