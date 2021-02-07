@@ -10,102 +10,147 @@ import UIKit
 
 class PokemonInfoController: UIViewController {
 
-    // MARK: - Properties
+    @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var numberLabel: UILabel!
+    @IBOutlet var poisonLabel: UILabel!
+    @IBOutlet var grassLabel: UILabel!
+    @IBOutlet var imageView: UIImageView!
+    @IBOutlet weak var abilityLabel: UILabel!
     
-    var pokemon: Pokemon? {
-        didSet {
-            navigationItem.title = pokemon?.name?.capitalized
-            imageView.image = pokemon?.image
-            infoLabel.text = pokemon?.description
-            infoView.pokemon = pokemon
+    var pokemon: Pokemon!
+    
+    let backgroundImageView = UIImageView()
+    
+    var is_photo_front: Bool = true
+    var front_photo: String = ""
+    var back_photo: String = ""
+    
+    func capitalize(text: String) -> String {
+        return text.prefix(1).uppercased() + text.dropFirst()
+    }
+    
+    func setImage(from url: String) {
+        guard let imageURL = URL(string: url) else {return}
+        
+        DispatchQueue.global().async {
+            guard let imageData = try? Data(contentsOf: imageURL) else { return }
+            
+            let image = UIImage(data: imageData)
+            DispatchQueue.main.async {
+                self.imageView.image = image
+            }
         }
     }
     
-    let imageView: UIImageView = {
-        let iv = UIImageView()
-        iv.contentMode = .scaleAspectFit
-        return iv
-    }()
+    @objc func tapGesture() {
+        if self.is_photo_front {
+            self.setImage(from: back_photo)
+            self.is_photo_front = false
+        }
+        else {
+            self.setImage(from: front_photo)
+            self.is_photo_front = true
+        }
+    }
     
-    let infoLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14)
-        label.numberOfLines = 0
-        return label
-    }()
-    
-    let infoView: InfoView = {
-        let view = InfoView()
-        view.configureViewForInfoController()
-        return view
-    }()
-    
-    lazy var evolutionView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .mainPink()
-        
-        view.addSubview(evoLabel)
-        evoLabel.translatesAutoresizingMaskIntoConstraints = false
-        evoLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        evoLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        
-        return view
-    }()
-    
-    let evoLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .white
-        label.text = "Next Evolution: ..."
-        label.font = UIFont.systemFont(ofSize: 20)
-        return label
-    }()
-    
-    let firstEvoImageView: UIImageView = {
-        let iv = UIImageView()
-        iv.contentMode = .scaleAspectFit
-        iv.backgroundColor = .white
-        iv.image = UIImage(named: "Image")
-        return iv
-    }()
-    
-    let secondEvoImageView: UIImageView = {
-        let iv = UIImageView()
-        iv.contentMode = .scaleAspectFit
-        iv.backgroundColor = .white
-        iv.image = UIImage(named: "Image")
-        
-        return iv
-    }()
-    
-    // MARK: - Init
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureViewComponents()
+        //setBackground()
+        
+        nameLabel.text = ""
+        numberLabel.text = ""
+        poisonLabel.text = ""
+        grassLabel.text = ""
+        abilityLabel.text = ""
+        
+        self.imageView.layer.borderColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0).cgColor
+        self.imageView.layer.masksToBounds = true
+        self.imageView.layer.borderWidth = 4
+        self.imageView.layer.backgroundColor = UIColor(red: 0.97, green: 0.97, blue: 0.97, alpha: 1.0).cgColor
+        self.imageView.isUserInteractionEnabled = true
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapGesture))
+        self.imageView.addGestureRecognizer(tapGesture)
+        
+        let url = URL(string: pokemon.url)
+        
+        guard let u = url else {
+            return
+        }
+    
+        URLSession.shared.dataTask(with: u) { (data, response, error) in
+            guard let data = data else {
+                return
+            }
+            
+            do {
+                let pokemonData = try JSONDecoder().decode(PokemonData.self, from: data)
+                
+                DispatchQueue.main.async {
+                    self.nameLabel.text = self.capitalize(text: self.pokemon.name)
+                    self.numberLabel.text = String(format: "#%03d", pokemonData.id)
+                    
+                    for typeEntry in pokemonData.types {
+                        if typeEntry.slot == 1 {
+                            self.poisonLabel.text = self.capitalize(text: typeEntry.type.name)
+                        }
+                        else if typeEntry.slot == 2 {
+                            self.grassLabel.text = self.capitalize(text: typeEntry.type.name)
+                        }
+                    }
+                    
+                    self.front_photo = pokemonData.sprites.front_default
+                    self.back_photo = pokemonData.sprites.back_default
+                    self.setImage(from: self.front_photo)
+                    
+                    self.setFlavorText(id: pokemonData.id)
+                }
+            }
+            catch let error {
+                print("\(error)")
+            }
+        }.resume()
     }
     
-    // MARK: - Helper Functions
-    /// Cofiguration the view
-    func configureViewComponents() {
-        view.backgroundColor = .white
-        navigationController?.navigationBar.tintColor = .white
+    func setBackground() {
+        view.addSubview(backgroundImageView)
+        backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
+        backgroundImageView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        backgroundImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         
-        view.addSubview(imageView)
-        imageView.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: nil, right: nil, paddingTop: 44, paddingLeft: 12, paddingBottom: 0, paddingRight: 0, width: 100, height: 100)
-        
-        view.addSubview(infoLabel)
-        infoLabel.anchor(top: nil, left: imageView.rightAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 44, paddingLeft: 16, paddingBottom: 0, paddingRight: 4, width: 0, height: 0)
-        infoLabel.centerYAnchor.constraint(equalTo: imageView.centerYAnchor).isActive = true
-        
-        view.addSubview(infoView)
-        infoView.anchor(top: infoLabel.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 8, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 150)
-        
-        view.addSubview(evolutionView)
-        evolutionView.anchor(top: infoView.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 8, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 50)
-        
-        view.addSubview(firstEvoImageView)
-        firstEvoImageView.anchor(top: evolutionView.bottomAnchor, left: view.leftAnchor, bottom: nil, right: nil, paddingTop: 35, paddingLeft: 32, paddingBottom: 0, paddingRight: 0, width: 120, height: 120)
-
-        view.addSubview(secondEvoImageView)
-        secondEvoImageView.anchor(top: evolutionView.bottomAnchor, left: nil, bottom: nil, right: view.rightAnchor, paddingTop: 35, paddingLeft: 0, paddingBottom: 0, paddingRight: 32, width: 120, height: 120)
+        backgroundImageView.image = UIImage(named: "background")
+        view.sendSubviewToBack(backgroundImageView)
     }
-}
+    
+    func setFlavorText(id: Int){
+        let url = URL(string: "https://pokeapi.co/api/v2/pokemon-species/" + String(id) + "/")
+        
+        guard let u = url else {
+            return
+        }
+        
+        URLSession.shared.dataTask(with: u) { (data, response, error) in
+            guard let data = data else {
+                return
+            }
+        
+            do {
+                let flavorData = try JSONDecoder().decode(FlavorData.self, from: data)
+                
+                for flavorEntry in flavorData.flavor_text_entries {
+                    if flavorEntry.language.name == "en" {
+                        DispatchQueue.main.async {
+                            self.abilityLabel.text = flavorEntry.flavor_text.replacingOccurrences(of: "\n", with: " ")
+                        }
+                        break
+                    }
+                }
+            }
+            catch let error {
+                print("\(error)")
+            }
+        }.resume()
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }}
