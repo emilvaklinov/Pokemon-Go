@@ -48,6 +48,7 @@ class LoadingViewController: UICollectionViewController {
     
     // MARK: - API
     
+    /// Asyncronic fetch form the dispatch Queue
     func fetchPokemon() {
         Service.shared.fetchPokemon { (pokemon) in
             DispatchQueue.main.async {
@@ -75,6 +76,8 @@ class LoadingViewController: UICollectionViewController {
         navigationItem.rightBarButtonItem?.tintColor = .white
     }
     
+    /// Description
+    /// - Parameter pokemon: Dismiss info description
     func dismissInfoView(pokemon: Pokemon?) {
         UIView.animate(withDuration: 0.5, animations: {
             self.visualEffectView.alpha = 0
@@ -85,6 +88,7 @@ class LoadingViewController: UICollectionViewController {
         }
     }
     
+    /// Configuration of components
     func configureViewComponents() {
         collectionView.backgroundColor = .white
         
@@ -118,6 +122,10 @@ extension LoadingViewController: UISearchBarDelegate {
         collectionView.reloadData()
     }
     
+    /// Description
+    /// - Parameters:
+    ///   - searchBar: searchBar description
+    ///   - searchText: searchText set up
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         if searchText == "" || searchBar.text == nil {
@@ -138,6 +146,11 @@ extension LoadingViewController {
         return inSearchMode ? filteredPokemon.count : pokemon.count
     }
     
+    /// Description
+    /// - Parameters:
+    ///   - collectionView: collectionView description
+    ///   - indexPath: indexPath description
+    /// - Returns: cell
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! LoadingCell
         
@@ -175,6 +188,8 @@ extension LoadingViewController: UICollectionViewDelegateFlowLayout {
 
 extension LoadingViewController: LoadingCellDelegate {
     
+    /// Description
+    /// - Parameter pokemon: pokemon cell view
     func presentInfoView(withPokemon pokemon: Pokemon) {
         
         view.addSubview(infoView)

@@ -10,6 +10,8 @@ import UIKit
 
 extension UIView {
     
+    /// Description
+    /// - Parameter view: center
     func center(inView view: UIView) {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
