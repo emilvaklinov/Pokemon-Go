@@ -4,7 +4,9 @@
 //
 //  Created by Emil Vaklinov on 06/02/2021.
 //  Copyright © 2021 Emil Vaklinov. All rights reserved.
-//
+
+/// MARK: Color scheme reference
+// https://www.schemecolor.com/pokemon-colors.php
 
 import UIKit
 
