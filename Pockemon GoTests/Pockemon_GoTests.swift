@@ -25,7 +25,7 @@ class Pockemon_GoTests: XCTestCase {
        //  Asynchronous test: success fast, failure slow
         func testValidCallToGetsHTTPStatusCode200() {
             // given
-            let url = URL(string: "https://pokedex-bb36f.firebaseio.com/pokemon.json")
+            let url = URL(string: "https://pokeapi.co/api/v2/pokemon?limit=151")
             // 1
             let promise = expectation(description: "Status code: 200")
     
@@ -52,7 +52,7 @@ class Pockemon_GoTests: XCTestCase {
     // Asynchronous test: faster fail
      func testCallToCompletes() {
          // given
-         let url = URL(string: "https://pokedex-bb36f.firebaseio.com/pokemon.json")
+         let url = URL(string: "https://pokeapi.co/api/v2/pokemon?limit=151")
          // 1
          let promise = expectation(description: "Completion handler invoked")
          var statusCode: Int?
