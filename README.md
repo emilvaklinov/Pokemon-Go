@@ -15,6 +15,7 @@ The used Pokemon JSON API:
 
 ### References
 - Color scheme reference from: https://www.schemecolor.com/pokemon-colors.php
+- Images from: https://www.pinclipart.com/pindetail/iTwJoiJ_pokemon-pokemon-logo-clipart/
 
 ### Development Platform
 - iOS 13.0 (Minimum deployment traget) and XCode 11.3/12+
@@ -40,4 +41,9 @@ To run the app on a device you need to choose team certificate.
 
 ### Swift architecture
 - The application is built with an MVC design pattern.
+
+### First version
 <img width="984" alt="Screenshot 2021-02-07 at 01 24 11" src="https://user-images.githubusercontent.com/30974420/107134178-a337a880-68e7-11eb-9a19-c969bc8bd233.png">
+
+### Second version
+![Screenshot 2021-02-08 at 13 34 24](https://user-images.githubusercontent.com/30974420/107227059-d88ce500-6a12-11eb-91ed-de865d3c6a42.png)
