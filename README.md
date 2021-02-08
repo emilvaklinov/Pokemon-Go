@@ -47,4 +47,6 @@ To run the app on a device you need to choose team certificate.
 <img width="984" alt="Screenshot 2021-02-07 at 01 24 11" src="https://user-images.githubusercontent.com/30974420/107134178-a337a880-68e7-11eb-9a19-c969bc8bd233.png">
 
 ### Second version
+- Stack of cards wich can be deleted.
+- On tap the image can change.
 ![Screenshot 2021-02-08 at 13 34 24](https://user-images.githubusercontent.com/30974420/107227059-d88ce500-6a12-11eb-91ed-de865d3c6a42.png)
