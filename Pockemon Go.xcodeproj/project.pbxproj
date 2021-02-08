@@ -111,13 +111,13 @@
 		483AC70725CF309D006C6DE6 /* Pockemon Go */ = {
 			isa = PBXGroup;
 			children = (
-				486E2E3E25D0C7D0003332C4 /* View */,
-				483AC75825CF32AD006C6DE6 /* Networking */,
 				483AC73E25CF30D4006C6DE6 /* AppDelegates */,
 				483AC75025CF3229006C6DE6 /* Model */,
+				486E2E3E25D0C7D0003332C4 /* View */,
 				483AC74325CF3168006C6DE6 /* Controller */,
 				483AC74725CF3178006C6DE6 /* Extensions */,
 				483AC74225CF3146006C6DE6 /* Storyboards */,
+				483AC75825CF32AD006C6DE6 /* Networking */,
 				483AC71125CF30A2006C6DE6 /* Assets.xcassets */,
 				483AC71625CF30A2006C6DE6 /* Info.plist */,
 			);

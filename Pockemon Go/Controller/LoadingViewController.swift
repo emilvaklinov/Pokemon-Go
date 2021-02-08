@@ -28,7 +28,7 @@ class LoadingViewController: UITableViewController, UISearchBarDelegate {
         super.viewDidLoad()
         tableView.keyboardDismissMode = UIScrollView.KeyboardDismissMode.onDrag
         fetchPokemon()
-        fetchPokemonData()
+//        fetchPokemonData()
     }
     
     
@@ -75,42 +75,12 @@ class LoadingViewController: UITableViewController, UISearchBarDelegate {
             
             do {
                 let pokemonList = try JSONDecoder().decode(PokemonList.self, from: data)
-                //                let pokemonData = try JSONDecoder().decode(PokemonData.self, from: data)
                 self.pokemon = pokemonList.results
                 self.currentPokemon = self.pokemon
-                
-                //                self.front_photo = pokemonData.sprites.front_default
-                //                self.setImage(from: self.front_photo)
+                                
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
-                    
-                    
-                    //                    self.setFlavorText(id: pokemonData.id)
-                }
-            }
-            catch let error {
-                print("\(error)")
-            }
-        }.resume()
-    }
-    
-    func fetchPokemonData() {
-        //        let url = URL(string: pokemon.url)
-        let url = URL(string: "https://pokeapi.co/api/v2/pokemon?limit=151")
-        guard let u = url else {
-            return
-        }
-        
-        URLSession.shared.dataTask(with: u) { (data, response, error) in
-            guard let data = data else {
-                return
-            }
-            
-            do {
-                let pokemonData = try JSONDecoder().decode(PokemonData.self, from: data)
-                
-                DispatchQueue.main.async {
-                    self.front_photo = pokemonData.sprites.front_default
+                    self.front_photo = self.pokemonSprite?.url ?? ""
                     self.setImage(from: self.front_photo)
                 }
             }
@@ -144,10 +114,7 @@ class LoadingViewController: UITableViewController, UISearchBarDelegate {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PokemonCell", for: indexPath) as! ReusableCell
-
         cell.textLabel?.text = capitalize(text: currentPokemon[indexPath.row].name)
-//                cell.imagePokemon.image = pokemonSprite[indexPath.row].
-        
         return cell
     }
     
