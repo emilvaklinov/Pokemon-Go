@@ -28,7 +28,7 @@ class LoadingViewController: UITableViewController, UISearchBarDelegate {
         super.viewDidLoad()
         tableView.keyboardDismissMode = UIScrollView.KeyboardDismissMode.onDrag
         fetchPokemon()
-//        fetchPokemonData()
+        configureSearchBar()
     }
     
     
@@ -92,10 +92,10 @@ class LoadingViewController: UITableViewController, UISearchBarDelegate {
     
     func setImage(from url: String) {
         guard let imageURL = URL(string: url) else {return}
-        
+
         DispatchQueue.global().async {
             guard let imageData = try? Data(contentsOf: imageURL) else { return }
-            
+
             let image = UIImage(data: imageData)
             DispatchQueue.main.async {
                 self.cellOutlet.imagePokemon.image = image
