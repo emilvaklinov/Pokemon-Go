@@ -40,5 +40,12 @@ extension UIColor {
     static func navyBluePok() -> UIColor {
         return UIColor.rgb(red: 0, green: 58, blue: 112)
     }
-
+    
+    static func border() -> UIColor {
+        return UIColor.rgb(red: 0.9, green: 0.9, blue: 0.9)
+    }
+    
+    static func brightGray() -> UIColor {
+        return UIColor.rgb(red: 236, green: 240, blue: 243)
+    }
 }

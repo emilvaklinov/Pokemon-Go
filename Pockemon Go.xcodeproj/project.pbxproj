@@ -20,6 +20,7 @@
 		483AC76A25CF3953006C6DE6 /* Extension + UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483AC76925CF3953006C6DE6 /* Extension + UIColor.swift */; };
 		483AC76F25CF3976006C6DE6 /* Extension + UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483AC76E25CF3976006C6DE6 /* Extension + UIView.swift */; };
 		483AC77E25CF3AFB006C6DE6 /* PokemonInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483AC77D25CF3AFB006C6DE6 /* PokemonInfoController.swift */; };
+		486E2E4025D0C80C003332C4 /* ReusableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486E2E3F25D0C80B003332C4 /* ReusableCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		483AC76925CF3953006C6DE6 /* Extension + UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIColor.swift"; sourceTree = "<group>"; };
 		483AC76E25CF3976006C6DE6 /* Extension + UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIView.swift"; sourceTree = "<group>"; };
 		483AC77D25CF3AFB006C6DE6 /* PokemonInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonInfoController.swift; sourceTree = "<group>"; };
+		486E2E3F25D0C80B003332C4 /* ReusableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 		483AC70725CF309D006C6DE6 /* Pockemon Go */ = {
 			isa = PBXGroup;
 			children = (
+				486E2E3E25D0C7D0003332C4 /* View */,
 				483AC75825CF32AD006C6DE6 /* Networking */,
 				483AC73E25CF30D4006C6DE6 /* AppDelegates */,
 				483AC75025CF3229006C6DE6 /* Model */,
@@ -189,6 +192,14 @@
 				483AC75925CF32CF006C6DE6 /* Service.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		486E2E3E25D0C7D0003332C4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				486E2E3F25D0C80B003332C4 /* ReusableCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -330,6 +341,7 @@
 				483AC70B25CF309D006C6DE6 /* SceneDelegate.swift in Sources */,
 				483AC76A25CF3953006C6DE6 /* Extension + UIColor.swift in Sources */,
 				483AC76F25CF3976006C6DE6 /* Extension + UIView.swift in Sources */,
+				486E2E4025D0C80C003332C4 /* ReusableCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
