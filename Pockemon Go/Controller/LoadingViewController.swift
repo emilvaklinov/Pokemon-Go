@@ -24,6 +24,7 @@ class LoadingViewController: UITableViewController, UISearchBarDelegate {
     private var front_photo: String = ""
     var cellOutlet: ReusableCell!
     
+    // MARK: - Init
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.keyboardDismissMode = UIScrollView.KeyboardDismissMode.onDrag
@@ -41,11 +42,18 @@ class LoadingViewController: UITableViewController, UISearchBarDelegate {
         searchBar.resignFirstResponder()
     }
     
+    /// Description
+    /// - Parameter text: String
+    /// - Returns: String
     func capitalize(text: String) -> String {
         return text.prefix(1).uppercased() + text.dropFirst()
     }
     
     
+    /// Description
+    /// - Parameters:
+    ///   - searchBar: searchBar
+    ///   - searchText: text change and filtering data
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         guard !searchText.isEmpty else {
             currentPokemon = pokemon
@@ -60,7 +68,7 @@ class LoadingViewController: UITableViewController, UISearchBarDelegate {
     
 
     
-    // MARK: - API
+    // MARK: - API Fetch Data
     func fetchPokemon() {
         let url = URL(string: "https://pokeapi.co/api/v2/pokemon?limit=151")
         
@@ -108,16 +116,31 @@ class LoadingViewController: UITableViewController, UISearchBarDelegate {
         return 1
     }
     
+    /// Description
+    /// - Parameters:
+    ///   - tableView: tableView description
+    ///   - section: section
+    /// - Returns: Array of Pokemons
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return currentPokemon.count
     }
     
+    /// Description
+    /// - Parameters:
+    ///   - tableView: tableView description
+    ///   - indexPath: indexPath to Reusable cell
+    /// - Returns: cell
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PokemonCell", for: indexPath) as! ReusableCell
         cell.textLabel?.text = capitalize(text: currentPokemon[indexPath.row].name)
         return cell
     }
     
+    /// Description
+    /// - Parameters:
+    ///   - tableView: tableView description
+    ///   - editingStyle: editing style DELETE
+    ///   - indexPath: curent Pokemmon
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             currentPokemon.remove(at: indexPath.row)
@@ -127,6 +150,10 @@ class LoadingViewController: UITableViewController, UISearchBarDelegate {
         }
     }
     
+    /// Description
+    /// - Parameters:
+    ///   - segue: segue description
+    ///   - sender: sender destination
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "PokemonSegue" {
             if let destination = segue.destination as? PokemonInfoController {

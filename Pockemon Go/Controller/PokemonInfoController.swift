@@ -24,7 +24,7 @@ class PokemonInfoController: UIViewController {
     var front_photo: String = ""
     var back_photo: String = ""
     
-    
+   // MARK: - Init
     override func viewDidLoad() {
         super.viewDidLoad()
        
@@ -38,10 +38,14 @@ class PokemonInfoController: UIViewController {
         fetchPokemonData()
     }
     
+    /// Description
+    /// - Parameter text: text description
+    /// - Returns: Array
     func capitalize(text: String) -> String {
         return text.prefix(1).uppercased() + text.dropFirst()
     }
     
+    /// Background view
     func setBackground() {
         view.addSubview(backgroundImageView)
         backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -52,6 +56,7 @@ class PokemonInfoController: UIViewController {
         view.sendSubviewToBack(backgroundImageView)
     }
     
+    /// Tap Gesture to change the image
     @objc func tapGesture() {
         if self.is_photo_front {
             self.setImage(from: back_photo)
@@ -64,6 +69,7 @@ class PokemonInfoController: UIViewController {
     }
     
     
+    /// Set up of Image View
     func setImageView() {
         self.imageView.backgroundColor = UIColor.bluePok()
         self.imageView.layer.cornerRadius = 20
@@ -89,6 +95,7 @@ class PokemonInfoController: UIViewController {
         }
     }
     
+    /// Fetching Pokemon Data
     func fetchPokemonData() {
         let url = URL(string: pokemon.url)
         
@@ -132,6 +139,8 @@ class PokemonInfoController: UIViewController {
     }
     
     
+    /// Description
+    /// - Parameter id: id description to set tex
     func setFlavorText(id: Int){
         let url = URL(string: "https://pokeapi.co/api/v2/pokemon-species/" + String(id) + "/")
         
@@ -162,6 +171,7 @@ class PokemonInfoController: UIViewController {
         }.resume()
     }
     
+    /// Memory worning function
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }}

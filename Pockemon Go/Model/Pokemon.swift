@@ -8,6 +8,7 @@
 
 import UIKit
 
+// MARK: - Pokemon Model
 struct PokemonList: Codable {
     let results: [Pokemon]
 }

@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// ReusableCell
 class ReusableCell: UITableViewCell {
     
     @IBOutlet weak var name: UILabel!
