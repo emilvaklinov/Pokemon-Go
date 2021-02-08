@@ -144,9 +144,20 @@ class LoadingViewController: UITableViewController, UISearchBarDelegate {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PokemonCell", for: indexPath) as! ReusableCell
+
         cell.textLabel?.text = capitalize(text: currentPokemon[indexPath.row].name)
-        //        cell.imagePokemon.image = pokemonSprite[indexPath.row].
+//                cell.imagePokemon.image = pokemonSprite[indexPath.row].
+        
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            currentPokemon.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        } else if editingStyle == .insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
