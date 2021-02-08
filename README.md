@@ -1,4 +1,5 @@
 # Pokemon-Go
+Project has two branches with diferent versions of the task: Main and Second. See the images bellow.
 
 ### Task
 You will be building a simple UI for the Pokemon API.
