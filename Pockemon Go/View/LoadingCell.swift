@@ -45,7 +45,7 @@ class LoadingCell: UICollectionViewCell {
     let nameLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
-        label.font = UIFont.systemFont(ofSize: 21)
+        label.font = UIFont.boldSystemFont(ofSize: 21)
         label.text = "Bulbasaur"
         return label
     }()

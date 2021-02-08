@@ -56,7 +56,7 @@ class PokemonInfoController: UIViewController {
         let label = UILabel()
         label.textColor = .white
         label.text = "Next Evolution: ..."
-        label.font = UIFont.systemFont(ofSize: 20)
+        label.font = UIFont.boldSystemFont(ofSize: 21)
         return label
     }()
     

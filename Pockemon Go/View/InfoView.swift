@@ -58,7 +58,7 @@ class InfoView: UIView {
     let nameLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
-        label.font = UIFont.boldSystemFont(ofSize: 21)
+        label.font = UIFont.boldSystemFont(ofSize: 22)
         label.text = "Charmander"
         return label
     }()
